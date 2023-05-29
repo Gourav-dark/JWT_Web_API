@@ -17,6 +17,8 @@ namespace JWT_Web_API.Models
         [Required]
         public string Password { get; set; }
 
+        public String Role { get; set; }
+
         public ICollection<Item> Items { get; set; }
     }
 }

@@ -27,7 +27,7 @@ namespace JWT_Web_API.Controllers
         }
         [HttpGet]
         [Route("[Action]")]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> UsersList()
         {
             if(_context.Users==null)
@@ -50,6 +50,7 @@ namespace JWT_Web_API.Controllers
                     Email = user.Email,
                     UserName=user.UserName,
                     Password=user.Password,
+                    Role=user.Role, 
                 };
                 _context.Users.Add(adduser);
                 await _context.SaveChangesAsync();
@@ -69,13 +70,14 @@ namespace JWT_Web_API.Controllers
                 var credential = new SigningCredentials(securityKey,SecurityAlgorithms.HmacSha256);
                 var claims = new[]
                 {
-                    new Claim(ClaimTypes.Email,email)
+                    new Claim(ClaimTypes.Email,email),
+                    new Claim(ClaimTypes.Role,existuser.Role)
                 };
                 var token = new JwtSecurityToken(
                     issuer: _config["JWT:Issuer"],
                     audience: _config["JWT:Audience"],
                     claims: claims,
-                    expires: DateTime.Now.AddMinutes(5),
+                    expires: DateTime.Now.AddMinutes(2),
                     signingCredentials: credential
                     );
                 var jwt=new JwtSecurityTokenHandler().WriteToken(token);

@@ -577,3 +577,4 @@ C:\Users\GOURAV SHARMA\source\repos\JWT_Web_API\JWT_Web_API\obj\Debug\net6.0\JWT
 C:\Users\GOURAV SHARMA\source\repos\JWT_Web_API\JWT_Web_API\obj\Debug\net6.0\JWT_Web_API.genruntimeconfig.cache
 C:\Users\GOURAV SHARMA\source\repos\JWT_Web_API\JWT_Web_API\obj\Debug\net6.0\ref\JWT_Web_API.dll
 C:\Users\GOURAV SHARMA\source\repos\JWT_Web_API\JWT_Web_API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\2270340\Downloads\ProjectDetails_05.05.2023\JWT_Web_API\JWT_Web_API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

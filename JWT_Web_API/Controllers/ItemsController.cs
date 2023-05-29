@@ -25,7 +25,7 @@ namespace JWT_Web_API.Controllers
 
         // GET: api/Items
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles="admin")]
         public async Task<ActionResult<IEnumerable<Item>>> GetItems()
         {
           if (_context.Items == null)
@@ -35,15 +35,15 @@ namespace JWT_Web_API.Controllers
             return await _context.Items.ToListAsync();
         }
 
-        // GET: api/Items/5
         [HttpGet("{id}")]
-        [Authorize]
+        [Authorize(Roles = "student")]
+        //[Authorize(Roles = "admin")]
         public async Task<ActionResult<Item>> GetItem(int id)
         {
-          if (_context.Items == null)
-          {
-              return NotFound();
-          }
+            if (_context.Items == null)
+            {
+                return NotFound();
+            }
             var item = await _context.Items.FindAsync(id);
 
             if (item == null)
